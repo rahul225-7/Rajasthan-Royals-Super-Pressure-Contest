@@ -4,7 +4,7 @@ Which T20 batters and bowlers hold up when the match is on the line? This reposi
 
 Built for **SupeRR Selector Season 2, Round 1** (Rajasthan Royals).
 
-**Live dashboard:** `https://YOUR-SITE.onrender.com` (replace after deploying, see below)
+**Live dashboard:** `https://under-pressure-kw5o.onrender.com` 
 
 ![Dashboard: win probability through the tightest knockout chase, with pressure balls in pink](docs/screenshot-hero.png)
 
@@ -113,19 +113,6 @@ Run all three from the repository root. Paths can be changed with environment va
 | `SUPERR_SITE` | `site/data/` | Where the dashboard JSON is written |
 
 `outputs/balls_v2.pkl` is about 115 MB, over GitHub's 100 MB file limit, so it is git-ignored and rebuilt by step 1. All randomness uses seed 7.
-
-## Deploy on Render
-
-**Blueprint (recommended).** Push this repository to GitHub, then in Render choose **New > Blueprint** and select the repository. `render.yaml` sets up a free static site serving `site/`.
-
-**Manual.** Choose **New > Static Site**, connect the repository and use:
-
-- Build command: leave empty, or `echo done`
-- Publish directory: `site`
-
-Every push to `main` redeploys. After the first deploy, put the live URL at the top of this README and replace `YOUR-USERNAME` in the footer link in `site/index.html`.
-
-The `site/` folder also works unchanged on Netlify, Vercel, Cloudflare Pages or GitHub Pages.
 
 ## Push to GitHub
 
