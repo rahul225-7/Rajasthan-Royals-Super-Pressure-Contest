@@ -1,0 +1,12 @@
+# Render Blueprint: deploys the dashboard as a free static site.
+# In Render: New > Blueprint > pick this repository. No build step is needed.
+services:
+  - type: web
+    name: under-pressure
+    runtime: static
+    buildCommand: echo "Static site, nothing to build"
+    staticPublishPath: ./site
+    headers:
+      - path: /data/*
+        name: Cache-Control
+        value: no-cache

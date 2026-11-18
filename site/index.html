@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Under Pressure: the most reliable T20 players when the match is on the line</title>
+  <meta name="description" content="A leverage-based model of pressure in IPL and T20I cricket, 2022 to 2026, ranking the batters and bowlers who deliver when it matters. SupeRR Selector Season 2, Round 1.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='%23CC1663'/><path d='M9 12c4 3 10 3 14 0M9 20c4-3 10-3 14 0' stroke='white' stroke-width='1.6' fill='none'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#rankings">Skip to rankings</a>
+
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <a class="wordmark" href="#top" aria-label="Under Pressure, back to top">Under<span>Pressure</span></a>
+      <nav aria-label="Sections">
+        <ul class="nav">
+          <li><a href="#rankings">Rankings</a></li>
+          <li><a href="#pressure">Pressure</a></li>
+          <li><a href="#explorer">Explorer</a></li>
+          <li><a href="#method">Method</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <h1 id="hero-title">Who holds up when the match is on the line</h1>
+        <p class="lede">A model of pressure built from 201,132 balls of IPL and T20 International cricket, 2022 to 2026. Every ball is scored by how far it can move the result, and every player is judged against his own usual level.</p>
+      </div>
+      <figure class="worm" id="worm">
+        <figcaption class="worm__caption" id="worm-caption">Loading match…</figcaption>
+        <div class="worm__chart" id="worm-chart" role="img" aria-label="Win probability, ball by ball, for the tightest knockout chase in the data"></div>
+        <p class="worm__key"><span class="key key--pressure"></span>Pressure ball, top 25% of leverage for its phase <span class="key key--wicket"></span>Wicket</p>
+      </figure>
+      <dl class="facts" id="facts"></dl>
+    </section>
+
+    <section class="band" id="rankings" aria-labelledby="rankings-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="rankings-title">The top 10 under pressure</h2>
+          <div class="segmented" role="tablist" aria-label="Choose a list">
+            <button role="tab" aria-selected="true" data-role="bat" id="tab-bat">Batters</button>
+            <button role="tab" aria-selected="false" data-role="bowl" id="tab-bowl">Bowlers</button>
+          </div>
+        </div>
+        <p class="section-note" id="rank-note"></p>
+        <div class="rankings">
+          <ol class="ranklist" id="ranklist" aria-label="Ranked players"></ol>
+          <article class="detail" id="detail" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="pressure" aria-labelledby="pressure-title">
+      <div class="section-head">
+        <h2 id="pressure-title">What counts as pressure</h2>
+      </div>
+      <div class="prose">
+        <p>Pressure here is <strong>leverage</strong>: the expected size of the swing in win probability that a single ball can cause. A win-probability model reads the match state before every ball, an outcome model gives the odds of a dot, a single, a boundary, a wicket or an extra, and leverage is the probability-weighted swing across those outcomes.</p>
+        <p>A ball counts as a pressure ball when its leverage is in the top quarter for its phase of the innings, so openers, middle-order batters and finishers are judged on comparable shares of their work.</p>
+      </div>
+      <div class="pressure-grid">
+        <figure class="panel">
+          <figcaption>
+            <h3>A chase carries about twice the pressure of a first innings</h3>
+            <p>Share of balls flagged as pressure, by innings and phase</p>
+          </figcaption>
+          <div id="heatmap"></div>
+        </figure>
+        <figure class="panel">
+          <figcaption>
+            <h3>Leverage predicts real swings</h3>
+            <p>Average actual win-probability swing per ball, in each tenth of balls ranked by leverage</p>
+          </figcaption>
+          <div id="deciles"></div>
+        </figure>
+      </div>
+      <div class="compare" id="compare"></div>
+    </section>
+
+    <section class="band" id="explorer" aria-labelledby="explorer-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="explorer-title">Every eligible player</h2>
+          <div class="segmented" role="tablist" aria-label="Choose players">
+            <button role="tab" aria-selected="true" data-xrole="bat">Batters</button>
+            <button role="tab" aria-selected="false" data-xrole="bowl">Bowlers</button>
+          </div>
+        </div>
+        <p class="section-note">Usual level against pressure level, both in run value per ball above what an average player would produce in the same situation. Players above the diagonal do better under pressure than they usually do. Dot size shows how many pressure balls each player has.</p>
+        <div class="explorer">
+          <figure class="panel panel--flush">
+            <div id="scatter"></div>
+          </figure>
+          <div class="table-tools">
+            <label for="search">Find a player</label>
+            <input id="search" type="search" placeholder="Type a name" autocomplete="off">
+          </div>
+          <div class="table-wrap">
+            <table class="ptable" id="ptable">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="method" aria-labelledby="method-title">
+      <div class="section-head">
+        <h2 id="method-title">How the rankings are built</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Model the chance of winning</h3><p>A logistic model with interaction terms predicts the batting side’s win chance before every ball, from runs, wickets, balls left, target, required rate, venue par and recent collapse. Out-of-fold Brier score 0.1755, against 0.1823 for gradient boosting.</p></li>
+        <li><h3>Measure leverage</h3><p>For each ball, leverage is the sum over outcomes of the outcome’s probability times the win-probability swing it would cause.</p></li>
+        <li><h3>Flag pressure</h3><p>The top 25% of leverage within each phase: powerplay, overs 7-10, overs 11-15 and the death.</p></li>
+        <li><h3>Score every ball against expectation</h3><p>Runs, dismissals, dots and extras are compared with what an average player would produce in the same state, against the same bowler type and batter hand. One wicket is worth <span data-fill="wicket_runs"></span> runs.</p></li>
+        <li><h3>Anchor to the player’s usual level</h3><p>Pressure evidence is blended with the player’s own ordinary-ball level. The amount of blending is chosen to best predict held-out pressure performance.</p></li>
+        <li><h3>Weight and combine</h3><p>Components that repeat on held-out matches carry weight in proportion to how well they repeat. Rise versus usual level (15%) and consistency (10%) are fixed because the brief names both.</p></li>
+      </ol>
+
+      <div class="weights" id="weights"></div>
+
+      <h3 class="subhead">Where cricket judgement shaped the model</h3>
+      <div class="table-wrap">
+        <table class="itable">
+          <thead><tr><th scope="col">Cricket judgement</th><th scope="col">How it was built</th><th scope="col">What the data said</th><th scope="col">In the rating</th></tr></thead>
+          <tbody>
+            <tr><td>Overs 7-10 make or break an innings</td><td>Batters: run value after 2+ wickets in 18 balls. Bowlers: run value in overs 7-10.</td><td>After a wicket cluster the run rate falls from 8.2 to 6.2 and dots rise from 25% to 35%.</td><td>7% batters, 8% bowlers</td></tr>
+            <tr><td>Dot balls hurt most in a steep chase</td><td>Dots avoided vs expected when 9+ an over is needed</td><td>Dismissals rise to 6.9% on the ball after a dot, from 6.1%.</td><td>13% batters</td></tr>
+            <tr><td>One wide is a tactic, two in a row is an error</td><td>Isolated wide charged at half, repeat wides and no-balls in full</td><td>A wide follows a wide 6.2% of the time, against 3.9% otherwise.</td><td>12% bowlers</td></tr>
+            <tr><td>Knockouts matter more</td><td>Knockout balls weighted 2.0x</td><td>Only 31 knockout matches, too few to fit a weight</td><td>Judgement weight</td></tr>
+            <tr><td>Rain games are explosive</td><td>Revised overs and target drive the match state</td><td>35% of balls in rain games are flagged, against 25% elsewhere.</td><td>Kept</td></tr>
+            <tr><td>Captains carry extra load</td><td>Captain balls weighted 1.5x, as a test</td><td>No clear effect for batters or bowlers</td><td>Not used</td></tr>
+            <tr><td>Any team can be good on the day</td><td>No team-strength weighting</td><td>A design choice</td><td>All matches count in full</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="subhead">How stable the lists are</h3>
+      <p class="section-note">How many of the model’s top 10 stay in the top 10 when one choice changes. Split-half reliability of the final rating, over 20 random splits of the matches: <span data-fill="split_bat"></span> for batters, <span data-fill="split_bowl"></span> for bowlers.</p>
+      <div class="table-wrap">
+        <table class="stable" id="stable"></table>
+      </div>
+
+      <h3 class="subhead">Limits</h3>
+      <ul class="limits">
+        <li>Batting ranks 6 to 10 are close calls. Each of those players makes the top 10 in only about a quarter to a third of resampled datasets.</li>
+        <li>Rising under pressure is a small, weakly repeatable effect. A player’s usual level explains most of his pressure performance.</li>
+        <li>The data has no line, length, field placings or usable ball speed. A tactical wide is inferred from the pattern of wides, not observed.</li>
+        <li>Leaving out the 2026 season keeps only five of the model’s top ten batters. Vaibhav Sooryavanshi has played only in 2025 and 2026.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>SupeRR Selector Season 2, Round 1. Built from the supplied IPL and T20I ball-by-ball data. Rankings and method can be rebuilt with the three scripts in the repository.</p>
+      <p><a href="https://github.com/YOUR-USERNAME/superr-pressure" id="repo-link">Source code and README</a></p>
+    </div>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="status" aria-live="polite" hidden></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

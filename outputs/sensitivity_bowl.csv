@@ -1,0 +1,16 @@
+scenario,top10_overlap,rank_rho_all,eligible
+pressure = top 20% LI,9,0.98,102
+pressure = top 33% LI,8,0.97,130
+no knockout/away weights,8,0.99,113
+captain balls weighted 1.5x,9,1.0,113
+without rain matches,9,0.99,113
+without emerging-team events,10,1.0,112
+leave out season 2022,7,0.94,93
+leave out season 2023,7,0.92,96
+leave out season 2024,8,0.93,82
+leave out season 2025,9,0.91,89
+leave out season 2026,9,0.96,95
+equal component weights,10,0.96,113
+venue-balanced pressure means,8,0.98,113
+one cutoff for all phases (not phase-relative),9,0.98,113
+core components only (no delta/consistency/modules),7,0.94,113

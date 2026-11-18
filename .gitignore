@@ -1,0 +1,11 @@
+# Supplied competition data stays out of the repository
+data/raw/*.csv
+# Intermediate ball table (about 115 MB, over GitHub's 100 MB file limit). Rebuilt by pipeline/pressure_v2.py
+outputs/balls_v2.pkl
+outputs/*.pkl
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+.ipynb_checkpoints/

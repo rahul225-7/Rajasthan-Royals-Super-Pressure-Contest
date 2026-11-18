@@ -1,0 +1,21 @@
+list,rank,player_id,name,p_balls,p_matches,rating,p_top10,rank_p05,rank_p95
+Batters,1,50284,Vaibhav Sooryavanshi,179.0,27.0,2.251,0.973,1.0,6.0
+Batters,2,6396,Tim David,369.0,57.0,1.681,0.847,1.0,21.1
+Batters,3,4260,Heinrich Klaasen,278.0,41.0,1.586,0.887,1.0,17.0
+Batters,4,7897,Namboori Tilak Varma,722.0,66.0,1.2,0.48,2.0,43.55
+Batters,5,6281,Abhishek Sharma,546.0,97.0,1.09,0.533,2.0,57.1
+Batters,6,6931,Pathum Nissanka,489.0,56.0,0.966,0.267,3.45,61.65
+Batters,7,2756,Shashank Singh,213.0,23.0,0.966,0.38,2.0,63.55
+Batters,8,4369,Shai Hope,215.0,32.0,0.903,0.287,3.45,88.65
+Batters,9,25669,Priyansh Arya,174.0,27.0,0.847,0.273,2.0,84.55
+Batters,10,4847,Finn Allen,162.0,30.0,0.842,0.26,3.45,72.3
+Bowlers,1,2933,Jasprit Bumrah,435.0,57.0,2.709,0.98,1.0,7.55
+Bowlers,2,830,Josh Hazlewood,423.0,53.0,2.077,0.713,1.0,26.1
+Bowlers,3,781,Sunil Narine,480.0,46.0,1.983,0.887,1.0,13.0
+Bowlers,4,4722,Rashid Khan,741.0,76.0,1.921,0.68,2.0,24.65
+Bowlers,5,7920,Nathan Ellis,273.0,30.0,1.495,0.587,2.0,31.1
+Bowlers,6,6256,Varun Chakravarthy,567.0,60.0,1.48,0.54,3.0,41.65
+Bowlers,7,360,Bhuvneshwar Kumar,721.0,80.0,1.45,0.407,3.0,40.65
+Bowlers,8,6669,Mohsin Khan,234.0,27.0,1.136,0.373,1.85,57.2
+Bowlers,9,6450,Mujeeb Ur Rahman,238.0,28.0,1.1,0.293,3.1,47.9
+Bowlers,10,2876,Axar Patel,752.0,88.0,1.085,0.2,5.0,52.0

@@ -1,0 +1,6 @@
+# Only needed to rebuild the rankings. The dashboard itself is plain HTML, CSS and JavaScript.
+# Tested with pandas 3.0, numpy 2.5, scipy 1.18, scikit-learn 1.9.
+pandas>=2.1
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.4
